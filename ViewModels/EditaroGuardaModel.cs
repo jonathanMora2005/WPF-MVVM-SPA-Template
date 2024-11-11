@@ -257,7 +257,7 @@ namespace WPF_MVVM_SPA_Template.ViewModels
 
         private void Guarda(object? parameter)
         {
-            if (_option1ViewModel.actualitza)
+            if (!_option1ViewModel.actualitza)
             {
                 _option1ViewModel.SelectedStudent.Name = Name;
                 _option1ViewModel.SelectedStudent.Surname = Surname;
