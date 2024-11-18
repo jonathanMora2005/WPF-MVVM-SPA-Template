@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="WPF_MVVM_SPA_Template.Views.Option2View"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_MVVM_SPA_Template.Views"
+        xmlns:p="clr-namespace:PAC1;assembly=PAC1"
+        mc:Ignorable="d">
+    <Grid Style="{StaticResource ModernGrid}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Campos de texto en el StackPanel -->
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="300">
+            <TextBlock Style="{StaticResource ModernTextBlock}" Text="{Binding NameContent}" Margin="5"/>
+            <p:MinLengthTextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"  IsValidText="{Binding IsValidText, Mode=TwoWay}" />
+            
+
+            <TextBlock Style="{StaticResource ModernTextBlock}" Text="{Binding CognomContent}"  Margin="5"/>
+            <p:DNIcontrol Text="{Binding Surname, UpdateSourceTrigger=PropertyChanged}" IsValidDNI="{Binding IsValidDNI, Mode=TwoWay}" />
+
+
+
+            
+
+            <TextBlock Style="{StaticResource ModernTextBlock}" Text="Email" Margin="5"/>
+            <p:EmailTextBox Email="{Binding Email, UpdateSourceTrigger=PropertyChanged}"   IsEmailValid="{Binding IsEmailValid, Mode=TwoWay}"/>
+
+
+            <TextBlock Style="{StaticResource ModernTextBlock}" Text="{Binding PhoneContent}" Margin="5"/>
+            <p:PhoneMaskTextBox  Text="{Binding Phone2, UpdateSourceTrigger=PropertyChanged}"  IsPhoneValid="{Binding IsPhoneValid, Mode=TwoWay}" Mask="###-###-###"/>
+
+
+            <!-- Date Field -->
+            <TextBlock  Style="{StaticResource ModernTextBlock}" Text="{Binding DataContent}" Margin="5"/>
+            <DatePicker Style="{StaticResource ModernDatePickerStyle}" SelectedDate="{Binding Date, UpdateSourceTrigger=PropertyChanged}"  Margin="0" />
+            
+        </StackPanel>
+
+        <!-- Botones en la segunda fila del Grid -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0">
+            <!-- Botón de Cancelar -->
+            <Button   Content="{Binding CancelarContent}" Command="{Binding CancelCommand}" Width="100" Margin="5" Style="{StaticResource ModernSecundaryButtonStyle}" />
+            <Button  Content="{Binding SaveContent}" Command="{Binding GuardaCommand}" Width="100" Margin="5" Click="Button_Click" Style="{StaticResource ModernPrimaryButtonStyle}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

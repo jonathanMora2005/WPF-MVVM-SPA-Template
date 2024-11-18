@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="WPF_MVVM_SPA_Template.Views.Option1View"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_MVVM_SPA_Template.Views"
+        mc:Ignorable="d">
+    
+    <Grid Style="{StaticResource ModernGrid}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <DataGrid ItemsSource="{Binding Clients}" 
+                  Style="{StaticResource ModernDatagrid}"
+                  SelectedItem="{Binding SelectedStudent}" 
+                  AutoGenerateColumns="False" 
+                  Grid.Row="0"
+                  IsReadOnly="True"
+                  CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn  Header="Name" Binding="{Binding Name}" Width="*" />
+                <DataGridTextColumn Header="Surname" Binding="{Binding Surname}" Width="*" />
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*" />
+                <DataGridTextColumn Header="Phone" Binding="{Binding Phone}" Width="*" />
+                <DataGridTextColumn Header="Date" Binding="{Binding Date}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+
+            <Button Width="100"  Content="{Binding ButtonContent2}" Command="{Binding GraStudentCommand}" IsEnabled="{Binding SelectedStudent}" 
+
+                    Margin="5" Padding="10,5" Style="{StaticResource ModernPrimaryButtonStyle}"/>
+            <Button Content="IA" Command="{Binding IaStudentCommand}" 
+                    IsEnabled="{Binding SelectedStudent}" 
+                    Margin="5" Padding="10,5" 
+                    Width="100" 
+                    Style="{StaticResource ModernPrimaryButtonStyle}"/>
+            <Button Content="{Binding ButtonContent3}" Command="{Binding InsStudentCommand}" 
+                    Margin="5" Padding="10,5" 
+                    Width="100" 
+                    Style="{StaticResource ModernPrimaryButtonStyle}"/>
+            <Button Content="{Binding ButtonContent}"  Command="{Binding EditStudentCommand}" 
+                    Margin="5" Padding="10,5" 
+                    Width="100" 
+                    IsEnabled="{Binding SelectedStudent}" 
+                    Style="{StaticResource ModernPrimaryButtonStyle}"/>
+            <Button Content="{Binding ButtonContent4}" Command="{Binding DelStudentCommand}" 
+                    IsEnabled="{Binding SelectedStudent}" 
+                    Margin="5" Padding="10,5" 
+                    Width="100" 
+                    Style="{StaticResource ModernSecundaryButtonStyle}"/>
+            <Button Content="exportar" Command="{Binding ExportarCommand}" 
+                    Margin="5" Padding="10,5" 
+                    Width="100" 
+                    Style="{StaticResource ModernSecundaryButtonStyle}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
