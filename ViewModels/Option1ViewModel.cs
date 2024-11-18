@@ -171,63 +171,78 @@ namespace WPF_MVVM_SPA_Template.ViewModels
 
         }
 
-        public void report()
+public void report()
+{
+    // Crear instancia del reporte
+    Report report = new Report();
+
+    // Construir la ruta completa del archivo Esquema.frx
+    string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Models/Esquema.frx");
+
+    // Verificar si el archivo existe
+    if (!File.Exists(filePath))
+    {
+        throw new FileNotFoundException($"No se encontró el archivo: {filePath}");
+    }
+
+    // Cargar el archivo FRX
+    report.Load(filePath);
+
+    // Registrar los datos
+    report.RegisterData(Clients, "Clients");
+
+    // Habilitar el DataSource
+    DataSourceBase dataSource = report.GetDataSource("JSON");
+    if (dataSource == null)
+    {
+        throw new NullReferenceException("No se pudo encontrar el DataSource 'Clients'.");
+    }
+    dataSource.Enabled = true;
+
+    // Vincular el DataSource al DataBand
+    DataBand? dataBand = report.FindObject("Data1") as DataBand;
+    if (dataBand != null)
+    {
+        dataBand.DataSource = dataSource;
+    }
+
+    // Preparar el reporte
+    report.Prepare();
+
+    // Exportar el reporte a un PDF
+    using (MemoryStream ms = new MemoryStream())
+    {
+        PDFSimpleExport pdfExport = new PDFSimpleExport();
+        report.Export(pdfExport, ms);
+
+        // Guardar el PDF en el directorio de salida
+        string pdfPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Esquema.pdf");
+        File.WriteAllBytes(pdfPath, ms.ToArray());
+
+        // Abrir el PDF automáticamente
+        try
         {
-            Console.WriteLine("Comensem report");
-            // Crear instancia del reporte
-            Report report = new Report();
-
-            // Construir la ruta completa del archivo Esquema.frx
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Models/Esquema.frx");
-
-            // Verificar si el archivo existe
-            if (!File.Exists(filePath))
+            // Verificar si la ruta al archivo es válida
+            if (File.Exists(pdfPath))
             {
-                throw new FileNotFoundException($"No se encontró el archivo: {filePath}");
+                // Abrir el archivo con la aplicación predeterminada
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(pdfPath)
+                {
+                    UseShellExecute = true
+                });
             }
-
-            // Cargar el archivo FRX
-            report.Load(filePath);
-
-            // Verificar si la colección Clients es nula
-            if (Clients == null)
+            else
             {
-                throw new NullReferenceException("La colección 'Clients' es nula.");
-            }
-
-            // Registrar los datos
-            report.RegisterData(Clients, "Clients");
-
-            // Habilitar el DataSource
-            DataSourceBase dataSource = report.GetDataSource("JSON");
-            if (dataSource == null)
-            {
-                throw new NullReferenceException("No se pudo encontrar el DataSource 'Clients'.");
-            }
-            dataSource.Enabled = true;
-
-            // Vincular el DataSource al DataBand
-            DataBand? dataBand = report.FindObject("Data1") as DataBand;
-            if (dataBand == null)
-            {
-                throw new NullReferenceException("No se pudo encontrar el DataBand 'Data1'.");
-            }
-            dataBand.DataSource = dataSource;
-
-            // Preparar el reporte
-            report.Prepare();
-
-            // Exportar el reporte a un PDF
-            using (MemoryStream ms = new MemoryStream())
-            {
-                PDFSimpleExport pdfExport = new PDFSimpleExport();
-                report.Export(pdfExport, ms);
-
-                // Guardar el PDF en el directorio de salida
-                string pdfPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Esquema.pdf");
-                File.WriteAllBytes(pdfPath, ms.ToArray());
+                throw new FileNotFoundException("No se pudo encontrar el archivo PDF generado.");
             }
         }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Error al intentar abrir el PDF: {ex.Message}");
+        }
+    }
+}
+
 
         public void EditStudent()
         {
