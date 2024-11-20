@@ -1,25 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Report ScriptLanguage="CSharp" ReportInfo.Created="11/18/2024 15:30:05" ReportInfo.Modified="11/20/2024 15:26:24" ReportInfo.CreatorVersion="2025.1.0.0">
   <Dictionary>
-    <JsonDataSourceConnection Name="Connection" ConnectionString="rijcmlq2+PJxoIT7htBT4hAqKdGgFF36xnhHjDni3Zu4xj3QvQcnih05iiyOIJ1vOgPsSzSX/S6Z7gG+F8ejhb5W7vdTi+GACXC3JMnxigr4SznJme4OGTdB4m1HF/fqrudac0I7tHS5LWhD7E+h+lusLBkiFKDhI7zU/NpgsGEoeTn8bd/4IrJ1YRGmUePDVUFC/COS2XXNWmHKQFTakGGkGcJ28mnw07Z48aJ2b2DiPUgjDkYOIqcVbdaBsAs4lU28kGLO3xvIT0h0yIcTYOdRoEj29ykYWS+UbbjkLi3QjsgYqU0IZbs7vm4b4gwzhNOfc1bbIbihlPM3nw3neZ2TA0cAgiW4etoYbDz6vhQd/Y5ZS/LynkMJ88NQtcD9hu5s4PMaV7KMJRaDwX4PgDzz/0jElJsAjh1Ygp+gW6lz+fsx+80CnO86Mofr/fY00wIl7f6">
-      <JsonTableDataSource Name="JSON" DataType="FastReport.Utils.Json.JsonArray" Enabled="true" TableName="JSON">
-        <Column Name="index" DataType="System.Int32"/>
-        <Column Name="item" DataType="FastReport.JsonBase">
-          <Column Name="Name" DataType="System.String"/>
-          <Column Name="Surname" DataType="System.String"/>
-          <Column Name="Email" DataType="System.String"/>
-          <Column Name="Phone" DataType="System.Double"/>
-          <Column Name="Date" DataType="System.String"/>
-          <Column Name="editable" DataType="System.Boolean" BindableControl="CheckBox"/>
-          <JsonTableDataSource Name="LR" DataType="FastReport.JsonBase" Enabled="true">
-            <Column Name="index" DataType="System.Int32"/>
-            <Column Name="item" DataType="System.Double"/>
-            <Column Name="array" DataType="FastReport.JsonBase"/>
-          </JsonTableDataSource>
-        </Column>
-        <Column Name="array" DataType="FastReport.JsonBase"/>
-      </JsonTableDataSource>
-    </JsonDataSourceConnection>
+    <!-- Eliminar la conexión JSON existente -->
+    <!-- <JsonDataSourceConnection Name="Connection" ... > -->
+
+    <!-- Agregar el DataSource para Clients -->
+    <DataSource Name="Clients" DataType="System.Collections.Generic.List`1[WPF_MVVM_SPA_Template.Models.Client]" Enabled="true">
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="Surname" DataType="System.String"/>
+      <Column Name="Email" DataType="System.String"/>
+      <Column Name="Phone" DataType="System.Int32"/>
+      <Column Name="Date" DataType="System.DateTime"/>
+      <Column Name="editable" DataType="System.Boolean"/>
+    </DataSource>
   </Dictionary>
   <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
     <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="56.7">
@@ -33,11 +26,11 @@
       <TextObject Name="HeaderDate" Left="519.75" Width="141.75" Height="18.9" Border.Lines="All" Border.Color="Gray" Fill.Color="242, 242, 242" Text="Date" Font="Arial, 10pt"/>
     </PageHeaderBand>
     <DataBand Name="Data1" Top="102.5" Width="718.2" Height="28.35">
-      <TextObject Name="DataName" Left="9.45" Width="94.5" Height="18.9" Border.Lines="All" Border.Color="LightGray" Text="[JSON.item.Name]" Font="Calibri, 10pt"/>
-      <TextObject Name="DataSurname" Left="141.75" Width="94.5" Height="18.9" Border.Lines="All" Border.Color="LightGray" Text="[JSON.item.Surname]" Font="Calibri, 10pt"/>
-      <TextObject Name="DataEmail" Left="255.15" Width="113.4" Height="18.9" Border.Lines="All" Border.Color="LightGray" Text="[JSON.item.Email]" Font="Calibri, 10pt"/>
-      <TextObject Name="DataPhone" Left="378" Width="94.5" Height="18.9" Border.Lines="All" Border.Color="LightGray" Text="[JSON.item.Phone]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="0" HorzAlign="Right" Font="Arial, 10pt"/>
-      <TextObject Name="DataDate" Left="519.75" Width="141.75" Height="18.9" Border.Lines="All" Border.Color="LightGray" Text="[JSON.item.Date]" Font="Calibri, 10pt"/>
+      <TextObject Name="DataName" Left="9.45" Width="94.5" Height="18.9" Border.Lines="All" Border.Color="LightGray" Text="[Clients.Name]" Font="Calibri, 10pt"/>
+      <TextObject Name="DataSurname" Left="141.75" Width="94.5" Height="18.9" Border.Lines="All" Border.Color="LightGray" Text="[Clients.Surname]" Font="Calibri, 10pt"/>
+      <TextObject Name="DataEmail" Left="255.15" Width="113.4" Height="18.9" Border.Lines="All" Border.Color="LightGray" Text="[Clients.Email]" Font="Calibri, 10pt"/>
+      <TextObject Name="DataPhone" Left="378" Width="94.5" Height="18.9" Border.Lines="All" Border.Color="LightGray" Text="[Clients.Phone]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="0" HorzAlign="Right" Font="Arial, 10pt"/>
+      <TextObject Name="DataDate" Left="519.75" Width="141.75" Height="18.9" Border.Lines="All" Border.Color="LightGray" Text="[Clients.Date]" Font="Calibri, 10pt"/>
     </DataBand>
     <PageFooterBand Name="PageFooter1" Top="134.85" Width="718.2" Height="28.35">
       <TextObject Name="FooterText" Text="Generated on: [DateTime.Now] | Page [Page#] of [TotalPages]" HorzAlign="Right" Font="Calibri, 8pt"/>
