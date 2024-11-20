@@ -189,10 +189,11 @@ public void report()
     report.Load(filePath);
 
     // Registrar los datos
-    report.RegisterData(Clients, "Clients");
+    MessageBox.Show(Clients.OfType<Client>().Count().ToString());
+    report.RegisterData(Clients, "Connection");
 
     // Habilitar el DataSource
-    DataSourceBase dataSource = report.GetDataSource("JSON");
+    DataSourceBase dataSource = report.GetDataSource("Connection");
     if (dataSource == null)
     {
         throw new NullReferenceException("No se pudo encontrar el DataSource 'Clients'.");

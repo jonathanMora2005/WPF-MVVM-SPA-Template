@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="11/18/2024 15:30:05" ReportInfo.Modified="11/18/2024 15:55:10" ReportInfo.CreatorVersion="2025.1.0.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/18/2024 15:30:05" ReportInfo.Modified="11/20/2024 15:26:24" ReportInfo.CreatorVersion="2025.1.0.0">
   <Dictionary>
-    <JsonDataSourceConnection Name="Clients" ConnectionString="rijcmlq8Sm46cpgh5Eu8vZd/IKSPyokwJXqKWiZxFIxyM06rTG1uG5uzbVs+Et1D+AkdCxrPbQg0eGi27ZkVgeZ1bIPNYJ3QL1qbbjjo1InCoAVNtwpJlFIDKiH/hILKaEbUDujT6jP9zDw4NEZq/njmPTN4JaCzADt3cixGq1G13BLHW9fx9wtkeZlqFBWWUeQ6RTM/yvXJCPolo+/oa7jjuN5hqdQxKL+GMnvAscm135GbRJ2LWx/sZ5xn4LE2vhmWb+rmuiDR2g7lb9hA7Muo/zLkOphAhlQ/HngEVNpVTQMb6HeB7FhUSkZnoIIb4H8kApf0q7fQvEqzmDxtzBQIdsquBAy4SAllGbFT+9Nay8u0WEutHjyOf7ONVrGxrhexlaUEfgu3ZowmZ1q+Tt4XHO/uHn8F4pdkrEaLeanZFpF7OiVAueXo6tGaD5JRwKJm5mIh8dMC+tfyX8ieUzGtBX0JmPyAM3sNL0mNE+AItT/a53ba8WaVGSaVzxKWvyP/XwqEYIz6+J1OTyOIwE6c810PBvUZghhPVKI3MJ1O66bNnB5aKrTVx8rQrI15U1PRG/gn7JBjROecujT5vivrZyPO/+TddU0kaThngbpeH44KLSUrYLyQEodsv0AyQkq+g8heRZHu0ofdAgWA1AUKpK2v9Vjuwj5UiNansOWVGKWZtQq4xSMjBgAQbHlV4iTwkRXdGH6Ht4PsUIS8CWEAX0L4gtw0p9PT7ndlhXFezOq1W+3iwZ3LCbqbtoCc3tc+WBEjKbdX829772VrXvOMouEySAeW4g0Pfm4vTdi/5l8PBlSDqQPzVrHazh1UPD0Wqt5ao9qCAY9gePdFBgS0SnXyZ8CdfjJGivr4arWC3x4WaGI4kQ82bMSBcgPMX1uGnOnh0ekvecvg6rZC8baNp7yt8VHG8+nW8v83eJw1xDOFKANxHCC+4k3ZD9be2wHzSJmPbOwAu7i5SCr9Z4xCrKNBQ==">
+    <JsonDataSourceConnection Name="Connection" ConnectionString="rijcmlq2+PJxoIT7htBT4hAqKdGgFF36xnhHjDni3Zu4xj3QvQcnih05iiyOIJ1vOgPsSzSX/S6Z7gG+F8ejhb5W7vdTi+GACXC3JMnxigr4SznJme4OGTdB4m1HF/fqrudac0I7tHS5LWhD7E+h+lusLBkiFKDhI7zU/NpgsGEoeTn8bd/4IrJ1YRGmUePDVUFC/COS2XXNWmHKQFTakGGkGcJ28mnw07Z48aJ2b2DiPUgjDkYOIqcVbdaBsAs4lU28kGLO3xvIT0h0yIcTYOdRoEj29ykYWS+UbbjkLi3QjsgYqU0IZbs7vm4b4gwzhNOfc1bbIbihlPM3nw3neZ2TA0cAgiW4etoYbDz6vhQd/Y5ZS/LynkMJ88NQtcD9hu5s4PMaV7KMJRaDwX4PgDzz/0jElJsAjh1Ygp+gW6lz+fsx+80CnO86Mofr/fY00wIl7f6">
       <JsonTableDataSource Name="JSON" DataType="FastReport.Utils.Json.JsonArray" Enabled="true" TableName="JSON">
         <Column Name="index" DataType="System.Int32"/>
         <Column Name="item" DataType="FastReport.JsonBase">
@@ -11,36 +11,36 @@
           <Column Name="Phone" DataType="System.Double"/>
           <Column Name="Date" DataType="System.String"/>
           <Column Name="editable" DataType="System.Boolean" BindableControl="CheckBox"/>
+          <JsonTableDataSource Name="LR" DataType="FastReport.JsonBase" Enabled="true">
+            <Column Name="index" DataType="System.Int32"/>
+            <Column Name="item" DataType="System.Double"/>
+            <Column Name="array" DataType="FastReport.JsonBase"/>
+          </JsonTableDataSource>
         </Column>
+        <Column Name="array" DataType="FastReport.JsonBase"/>
       </JsonTableDataSource>
     </JsonDataSourceConnection>
   </Dictionary>
-  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt" Padding.Bottom="10">
-    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8">
-<TextObject Name="Title" Left="0" Width="718.2" Height="37.8" 
-            Text="Client Report" 
-            Font="Calibri, 18pt, Bold" 
-            HorzAlign="Center" VertAlign="Center" 
-            Border.Lines="Bottom" Border.Width="3" Border.Color="#0055a5" 
-            Fill.Color="#f0f8ff" TextFill.Color="#003366"  Padding.Bottom="10"/>
-
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="56.7">
+      <TextObject Name="Title" Width="718.2" Height="37.8" Border.Lines="Bottom" Border.Color="0, 85, 165" Border.Width="3" Fill.Color="AliceBlue" Text="Client Report" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt" TextFill.Color="0, 51, 102"/>
     </ReportTitleBand>
-    <PageHeaderBand Name="PageHeader1" Top="41.8" Width="718.2" Height="28.35" Padding.Bottom="10">
-      <TextObject Name="HeaderName" Left="9.45" Width="94.5" Height="18.9" Text="Name" Font="Calibri, 12pt, Bold" Fill.Color="#f2f2f2" Border.Lines="All" Border.Color="Gray"/>
-      <TextObject Name="HeaderSurname" Left="141.75" Width="94.5" Height="18.9" Text="Surname" Font="Calibri, 12pt, Bold" Fill.Color="#f2f2f2" Border.Lines="All" Border.Color="Gray"/>
-      <TextObject Name="HeaderEmail" Left="255.15" Width="94.5" Height="18.9" Text="Email" Font="Calibri, 12pt, Bold" Fill.Color="#f2f2f2" Border.Lines="All" Border.Color="Gray"/>
-      <TextObject Name="HeaderPhone" Left="378" Width="94.5" Height="18.9" Text="Phone" Font="Calibri, 12pt, Bold" Fill.Color="#f2f2f2" Border.Lines="All" Border.Color="Gray"/>
-      <TextObject Name="HeaderDate" Left="500.85" Width="94.5" Height="18.9" Text="Date" Font="Calibri, 12pt, Bold" Fill.Color="#f2f2f2" Border.Lines="All" Border.Color="Gray"/>
+    <PageHeaderBand Name="PageHeader1" Top="60.7" Width="718.2" Height="37.8">
+      <TextObject Name="HeaderName" Left="9.45" Width="94.5" Height="18.9" Border.Lines="All" Border.Color="Gray" Fill.Color="242, 242, 242" Text="Name" Font="Arial, 10pt"/>
+      <TextObject Name="HeaderSurname" Left="141.75" Width="94.5" Height="18.9" Border.Lines="All" Border.Color="Gray" Fill.Color="242, 242, 242" Text="Surname" Font="Arial, 10pt"/>
+      <TextObject Name="HeaderEmail" Left="255.15" Width="94.5" Height="18.9" Border.Lines="All" Border.Color="Gray" Fill.Color="242, 242, 242" Text="Email" Font="Arial, 10pt"/>
+      <TextObject Name="HeaderPhone" Left="378" Width="94.5" Height="18.9" Border.Lines="All" Border.Color="Gray" Fill.Color="242, 242, 242" Text="Phone" Font="Arial, 10pt"/>
+      <TextObject Name="HeaderDate" Left="519.75" Width="141.75" Height="18.9" Border.Lines="All" Border.Color="Gray" Fill.Color="242, 242, 242" Text="Date" Font="Arial, 10pt"/>
     </PageHeaderBand>
-    <DataBand Name="Data1" Top="74.15" Width="718.2" Height="28.35" DataSource="JSON">
-      <TextObject Name="DataName" Left="9.45" Width="94.5" Height="18.9" Text="[JSON.item.Name]" Font="Calibri, 10pt" Border.Lines="All" Border.Color="LightGray"/>
-      <TextObject Name="DataSurname" Left="141.75" Width="94.5" Height="18.9" Text="[JSON.item.Surname]" Font="Calibri, 10pt" Border.Lines="All" Border.Color="LightGray"/>
-      <TextObject Name="DataEmail" Left="255.15" Width="94.5" Height="18.9" Text="[JSON.item.Email]" Font="Calibri, 10pt" Border.Lines="All" Border.Color="LightGray"/>
-      <TextObject Name="DataPhone" Left="378" Width="94.5" Height="18.9" Text="[JSON.item.Phone]" Format="Number" Format.DecimalDigits="0" HorzAlign="Right" Border.Lines="All" Border.Color="LightGray"/>
-      <TextObject Name="DataDate" Left="500.85" Width="94.5" Height="18.9" Text="[JSON.item.Date]" Font="Calibri, 10pt" Border.Lines="All" Border.Color="LightGray"/>
+    <DataBand Name="Data1" Top="102.5" Width="718.2" Height="28.35">
+      <TextObject Name="DataName" Left="9.45" Width="94.5" Height="18.9" Border.Lines="All" Border.Color="LightGray" Text="[JSON.item.Name]" Font="Calibri, 10pt"/>
+      <TextObject Name="DataSurname" Left="141.75" Width="94.5" Height="18.9" Border.Lines="All" Border.Color="LightGray" Text="[JSON.item.Surname]" Font="Calibri, 10pt"/>
+      <TextObject Name="DataEmail" Left="255.15" Width="113.4" Height="18.9" Border.Lines="All" Border.Color="LightGray" Text="[JSON.item.Email]" Font="Calibri, 10pt"/>
+      <TextObject Name="DataPhone" Left="378" Width="94.5" Height="18.9" Border.Lines="All" Border.Color="LightGray" Text="[JSON.item.Phone]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="0" HorzAlign="Right" Font="Arial, 10pt"/>
+      <TextObject Name="DataDate" Left="519.75" Width="141.75" Height="18.9" Border.Lines="All" Border.Color="LightGray" Text="[JSON.item.Date]" Font="Calibri, 10pt"/>
     </DataBand>
-    <PageFooterBand Name="PageFooter1" Top="153.75" Width="718.2" Height="28.35">
-<TextObject Name="FooterText" Text="Generated on: [DateTime.Now] | Page [Page#] of [TotalPages]" Font="Calibri, 8pt" HorzAlign="Right"/>
+    <PageFooterBand Name="PageFooter1" Top="134.85" Width="718.2" Height="28.35">
+      <TextObject Name="FooterText" Text="Generated on: [DateTime.Now] | Page [Page#] of [TotalPages]" HorzAlign="Right" Font="Calibri, 8pt"/>
     </PageFooterBand>
   </ReportPage>
 </Report>
