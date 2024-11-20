@@ -81,7 +81,7 @@ namespace WPF_MVVM_SPA_Template.ViewModels
                     Option2VM.Name = "";
                     Option2VM.Surname = "";
                     Option2VM.Email = "";
-                    Option2VM.Phone = 0;
+                    Option2VM.Phone = "0";
                     Option2VM.Date= DateTime.Today;
                     Option1VM.actualitza = false;
                     CurrentView = new Option1View { DataContext = Option1VM };

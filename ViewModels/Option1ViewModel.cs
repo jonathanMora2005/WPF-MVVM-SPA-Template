@@ -13,6 +13,7 @@ using FastReport;
 using FastReport.Data;
 using FastReport.Export.PdfSimple;
 using Microsoft.CodeAnalysis.Text;
+using String = System.String;
 
 
 namespace WPF_MVVM_SPA_Template.ViewModels
@@ -114,7 +115,7 @@ namespace WPF_MVVM_SPA_Template.ViewModels
                 Name = "John",
                 Surname = "Doe",
                 Email = "john.doe@example.com",
-                Phone = 123456789,
+                Phone = "123456789",
                 Date = DateTime.Now,
                 LR = novaLlista()
 
@@ -124,7 +125,7 @@ namespace WPF_MVVM_SPA_Template.ViewModels
                 Name = "Anna",
                 Surname = "Smith",
                 Email = "anna.smith@example.com",
-                Phone = 987654321,
+                Phone = "987654321",
                 Date = new DateTime(2024, 1, 15),
                 LR = novaLlista()
 
@@ -189,11 +190,11 @@ public void report()
     report.Load(filePath);
 
     // Registrar los datos
-    MessageBox.Show(Clients.OfType<Client>().Count().ToString());
-    report.RegisterData(Clients, "Connection");
+    report.RegisterData(Clients, "Clients");
+    MessageBox.Show($"Número de clientes en la lista Clients: {Clients.Count}");
 
     // Habilitar el DataSource
-    DataSourceBase dataSource = report.GetDataSource("Connection");
+    DataSourceBase dataSource = report.GetDataSource("Clients");
     if (dataSource == null)
     {
         throw new NullReferenceException("No se pudo encontrar el DataSource 'Clients'.");
@@ -223,10 +224,8 @@ public void report()
         // Abrir el PDF automáticamente
         try
         {
-            // Verificar si la ruta al archivo es válida
             if (File.Exists(pdfPath))
             {
-                // Abrir el archivo con la aplicación predeterminada
                 System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(pdfPath)
                 {
                     UseShellExecute = true
@@ -289,7 +288,7 @@ public void report()
 
         }
 
-        public void AddStudent(string name = "NEW", string surname = "NEW", string email = "New@example.com", int phone = 0, DateTime date = default)
+        public void AddStudent(string name = "NEW", string surname = "NEW", string email = "New@example.com", String phone = "0", DateTime date = default)
         {
            
                 Clients.Add(new Client

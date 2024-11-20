@@ -21,7 +21,7 @@ namespace WPF_MVVM_SPA_Template.ViewModels
         private string? _name;
         private string? _surname;
         private string? _email;
-        private int _phone;
+        private String _phone;
         private DateTime _date;
 
         private Option1ViewModel _option1ViewModel;
@@ -140,7 +140,7 @@ namespace WPF_MVVM_SPA_Template.ViewModels
         }
 
 
-        public int Phone
+        public String Phone
         {
             get => _phone;
             set
@@ -191,7 +191,7 @@ namespace WPF_MVVM_SPA_Template.ViewModels
             Name = string.Empty;
             Surname = string.Empty;
             Email = string.Empty;
-            Phone = 0;
+            Phone = "0";
             Date = DateTime.Today;
             _mainViewModel.SelectedView = "Option1";
             _mainViewModel.ChangeView();
