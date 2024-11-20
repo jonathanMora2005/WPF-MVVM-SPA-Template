@@ -21,7 +21,7 @@ namespace WPF_MVVM_SPA_Template.ViewModels
         private string? _name;
         private string? _DNI;
         private string? _email;
-        private String _phone;
+        private string _phone;
         private DateTime _date;
 
         private Option1ViewModel _option1ViewModel;
@@ -137,7 +137,7 @@ namespace WPF_MVVM_SPA_Template.ViewModels
         }
 
 
-        public String Phone
+        public string Phone
         {
             get => _phone;
             set
