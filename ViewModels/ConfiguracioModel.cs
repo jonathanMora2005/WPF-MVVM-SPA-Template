@@ -154,7 +154,7 @@ namespace WPF_MVVM_SPA_Template.ViewModels
             }
             else if (SelectedIdioma.Split(" ")[1] == "Angles")
             {
-                ButtonContent1 = "Select the Thema";
+                ButtonContent1 = "Select the Theme";
                 ButtonContent2 = "Select the language";
                 ButtonContent3 = "Ligth";
                 ButtonContent5 = "Dark";

@@ -47,15 +47,16 @@
                     Width="100" 
                     IsEnabled="{Binding SelectedStudent}" 
                     Style="{StaticResource ModernPrimaryButtonStyle}"/>
+            <Button Content="exportar" Command="{Binding ExportarCommand}" 
+                    Margin="5" Padding="10,5" 
+                    Width="100" 
+                    Style="{StaticResource ModernPrimaryButtonStyle}"/>
             <Button Content="{Binding ButtonContent4}" Command="{Binding DelStudentCommand}" 
                     IsEnabled="{Binding SelectedStudent}" 
                     Margin="5" Padding="10,5" 
                     Width="100" 
                     Style="{StaticResource ModernSecundaryButtonStyle}"/>
-            <Button Content="exportar" Command="{Binding ExportarCommand}" 
-                    Margin="5" Padding="10,5" 
-                    Width="100" 
-                    Style="{StaticResource ModernSecundaryButtonStyle}"/>
+            
         </StackPanel>
     </Grid>
 </UserControl>
