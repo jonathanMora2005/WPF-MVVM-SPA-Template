@@ -9,7 +9,7 @@ namespace WPF_MVVM_SPA_Template.Models
     class Client
     {
         public string? Name { get; set; }
-        public string? Surname { get; set; }
+        public string? DNI { get; set; }
         public string? Email { get; set; }
         public String Phone { get; set; }
         public DateTime Date { get; set; }

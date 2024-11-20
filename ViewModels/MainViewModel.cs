@@ -79,7 +79,7 @@ namespace WPF_MVVM_SPA_Template.ViewModels
             {
                 case "Option1":
                     Option2VM.Name = "";
-                    Option2VM.Surname = "";
+                    Option2VM.DNI = "";
                     Option2VM.Email = "";
                     Option2VM.Phone = "0";
                     Option2VM.Date= DateTime.Today;

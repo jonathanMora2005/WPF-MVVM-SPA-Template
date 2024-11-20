@@ -19,7 +19,7 @@
             
 
             <TextBlock Style="{StaticResource ModernTextBlock}" Text="{Binding CognomContent}"  Margin="5"/>
-            <p:DNIcontrol Text="{Binding Surname, UpdateSourceTrigger=PropertyChanged}" IsValidDNI="{Binding IsValidDNI, Mode=TwoWay}" />
+            <p:DNIcontrol Text="{Binding DNI, UpdateSourceTrigger=PropertyChanged}" IsValidDNI="{Binding IsValidDNI, Mode=TwoWay}" />
 
 
 

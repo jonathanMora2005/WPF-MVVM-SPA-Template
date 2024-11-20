@@ -113,7 +113,7 @@ namespace WPF_MVVM_SPA_Template.ViewModels
             Clients.Add(new Client
             {
                 Name = "John",
-                Surname = "Doe",
+                DNI = "12345678E",
                 Email = "john.doe@example.com",
                 Phone = "123456789",
                 Date = DateTime.Now,
@@ -123,7 +123,7 @@ namespace WPF_MVVM_SPA_Template.ViewModels
             Clients.Add(new Client
             {
                 Name = "Anna",
-                Surname = "Smith",
+                DNI = "87654321E",
                 Email = "anna.smith@example.com",
                 Phone = "987654321",
                 Date = new DateTime(2024, 1, 15),
@@ -174,6 +174,7 @@ namespace WPF_MVVM_SPA_Template.ViewModels
 
 public void report()
 {
+    
     // Crear instancia del reporte
     Report report = new Report();
 
@@ -249,7 +250,7 @@ public void report()
             if (SelectedStudent != null)
             {
                 _option2ViewModel.Name = SelectedStudent.Name;
-                _option2ViewModel.Surname = SelectedStudent.Surname;
+                _option2ViewModel.DNI = SelectedStudent.DNI;
                 _option2ViewModel.Email = SelectedStudent.Email;
                 _option2ViewModel.Phone = SelectedStudent.Phone;
                 _option2ViewModel.Date = SelectedStudent.Date;
@@ -288,13 +289,13 @@ public void report()
 
         }
 
-        public void AddStudent(string name = "NEW", string surname = "NEW", string email = "New@example.com", String phone = "0", DateTime date = default)
+        public void AddStudent(string name = "NEW", string DNI = "NEW", string email = "New@example.com", String phone = "0", DateTime date = default)
         {
            
                 Clients.Add(new Client
                 {
                     Name = name,
-                    Surname = surname,
+                    DNI = DNI,
                     Email = email,
                     Phone = phone,
                     Date = date,
@@ -311,9 +312,7 @@ public void report()
             {
                 Clients.Remove(SelectedStudent);
             }
-            else
-            {
-            }
+           
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;

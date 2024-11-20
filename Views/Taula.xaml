@@ -21,7 +21,7 @@
                   CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn  Header="Name" Binding="{Binding Name}" Width="*" />
-                <DataGridTextColumn Header="Surname" Binding="{Binding Surname}" Width="*" />
+                <DataGridTextColumn Header="DNI" Binding="{Binding DNI}" Width="*" />
                 <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*" />
                 <DataGridTextColumn Header="Phone" Binding="{Binding Phone}" Width="*" />
                 <DataGridTextColumn Header="Date" Binding="{Binding Date}" Width="*" />

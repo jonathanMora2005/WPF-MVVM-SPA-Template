@@ -19,7 +19,7 @@ namespace WPF_MVVM_SPA_Template.ViewModels
 
 
         private string? _name;
-        private string? _surname;
+        private string? _DNI;
         private string? _email;
         private String _phone;
         private DateTime _date;
@@ -103,7 +103,6 @@ namespace WPF_MVVM_SPA_Template.ViewModels
 
         public string? Name
         {
-
             get => _name; 
             set
             {
@@ -115,12 +114,12 @@ namespace WPF_MVVM_SPA_Template.ViewModels
 
 
 
-        public string? Surname
+        public string? DNI
         {
-            get => _surname;
+            get => _DNI;
             set
             {
-                _surname = value;
+                _DNI = value;
                 OnPropertyChanged();
 
 
@@ -134,8 +133,6 @@ namespace WPF_MVVM_SPA_Template.ViewModels
             {
                 _email = value;
                 OnPropertyChanged();
-
-
             }
         }
 
@@ -147,8 +144,6 @@ namespace WPF_MVVM_SPA_Template.ViewModels
             {
                 _phone = value;
                 OnPropertyChanged();
-
-
             }
         }
         public DateTime Date
@@ -158,8 +153,7 @@ namespace WPF_MVVM_SPA_Template.ViewModels
             {
                 _date = value;
                 OnPropertyChanged();
-
-
+                
             }
         }
 
@@ -189,7 +183,7 @@ namespace WPF_MVVM_SPA_Template.ViewModels
         private void ExecuteCancel(object? parameter)
         {
             Name = string.Empty;
-            Surname = string.Empty;
+            DNI = string.Empty;
             Email = string.Empty;
             Phone = "0";
             Date = DateTime.Today;
@@ -260,7 +254,7 @@ namespace WPF_MVVM_SPA_Template.ViewModels
             if (!_option1ViewModel.actualitza)
             {
                 _option1ViewModel.SelectedStudent.Name = Name;
-                _option1ViewModel.SelectedStudent.Surname = Surname;
+                _option1ViewModel.SelectedStudent.DNI = DNI;
                 _option1ViewModel.SelectedStudent.Email = Email;
                 _option1ViewModel.SelectedStudent.Phone = Phone;
                 _option1ViewModel.SelectedStudent.Date = Date;
@@ -270,7 +264,8 @@ namespace WPF_MVVM_SPA_Template.ViewModels
             }
             else if (IsValidDNI && IsEmailValid && IsPhoneValid && IsValidText)
             {
-                _option1ViewModel.AddStudent(Name, Surname, Email, Phone, Date);
+                MessageBox.Show(Phone + Name);
+                _option1ViewModel.AddStudent(Name, DNI, Email, Phone, Date);
                 ExecuteCancel(parameter);
                 _mainViewModel.SelectedView = "Option1";
                 _mainViewModel.ChangeView();

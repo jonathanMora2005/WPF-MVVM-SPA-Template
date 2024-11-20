@@ -80,7 +80,7 @@ namespace WPF_MVVM_SPA_Template.ViewModels
                             {
                                 parts = new[]
                                 {
-                                    new { text = "si pots contesta fent servi las  dades de aquet usuari nom = "  + _option1ViewModel.SelectedStudent.Name + ",cognom = " + _option1ViewModel.SelectedStudent.Surname + ", Email = " + _option1ViewModel.SelectedStudent.Email + ",Phone = " + _option1ViewModel.SelectedStudent.Phone + ",Neixament = " + _option1ViewModel.SelectedStudent.Date + "Dines del ultims 12 mesos = " + convertiLLista( _option1ViewModel.SelectedStudent.LR ) + ",en cas de que la pragunta no sigui sobra el usuar  contesta que la pregunta no es adacuada  Pregunta =  "
+                                    new { text = "si pots contesta fent servi las  dades de aquet usuari nom = "  + _option1ViewModel.SelectedStudent.Name + ",DNI = " + _option1ViewModel.SelectedStudent.DNI + ", Email = " + _option1ViewModel.SelectedStudent.Email + ",Phone = " + _option1ViewModel.SelectedStudent.Phone + ",Neixament = " + _option1ViewModel.SelectedStudent.Date + "Dines del ultims 12 mesos = " + convertiLLista( _option1ViewModel.SelectedStudent.LR ) + ",en cas de que la pragunta no sigui sobra el usuar  contesta que la pregunta no es adacuada  Pregunta =  "
                                      + UserInput }  
                                 }
                             }
