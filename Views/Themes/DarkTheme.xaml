@@ -96,11 +96,11 @@
                     <ControlTemplate.Triggers>
                         <!-- Efecte hover -->
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#030303"/>
+                            <Setter Property="Background" Value="#40861d"/>
                         </Trigger>
                         <!-- Efecte de deshabilitació -->
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Background" Value="#030303"/>
+                            <Setter Property="Background" Value="#40861d"/>
                             <Setter Property="BorderBrush" Value="#72B626"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
