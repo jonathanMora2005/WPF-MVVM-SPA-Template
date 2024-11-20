@@ -168,15 +168,10 @@ namespace WPF_MVVM_SPA_Template.ViewModels
 
         public EditaroGuardaModel(MainViewModel mainViewModel)
         {
-
-            
-         
                 _mainViewModel = mainViewModel;
                 Name = string.Empty;
                 CancelCommand = new RelayCommand(ExecuteCancel);
                 GuardaCommand = new RelayCommand(Guarda);
-            
-
         }
 
         // Método que se ejecuta cuando se llama al comando
@@ -251,7 +246,7 @@ namespace WPF_MVVM_SPA_Template.ViewModels
 
         private void Guarda(object? parameter)
         {
-            if (!_option1ViewModel.actualitza)
+            if (_option1ViewModel.actualitza)
             {
                 _option1ViewModel.SelectedStudent.Name = Name;
                 _option1ViewModel.SelectedStudent.DNI = DNI;

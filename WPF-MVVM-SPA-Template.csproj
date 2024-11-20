@@ -26,7 +26,7 @@
 
   <ItemGroup>
     <Reference Include="PAC1">
-      <HintPath>..\pra2\bin\Debug\net8.0-windows\PAC1.dll</HintPath>
+      <HintPath>..\..\PAC2-master\PAC2-master\bin\Debug\net8.0-windows\PAC1.dll</HintPath>
     </Reference>
   </ItemGroup>
 
