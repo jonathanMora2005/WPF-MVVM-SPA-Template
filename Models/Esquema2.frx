@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/18/2024 15:30:05" ReportInfo.Modified="11/20/2024 15:26:24" ReportInfo.CreatorVersion="2025.1.0.0">
+  <Dictionary>
+    <DataSource Name="Clients" DataType="System.Collections.Generic.List`1[WPF_MVVM_SPA_Template.Models.Client]" Enabled="true">
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="DNI" DataType="System.String"/>
+      <Column Name="Email" DataType="System.String"/>
+      <Column Name="Phone" DataType="System.Int32"/>
+      <Column Name="Date" DataType="System.DateTime"/>
+      <Column Name="editable" DataType="System.Boolean"/>
+      <Column Name="LR" DataType="System.Collections.Generic.List`1[System.Int32]"/> <!-- Añadido -->
+    </DataSource>
+  </Dictionary>
+
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="56.7">
+      <TextObject Name="Title" Width="718.2" Height="37.8" Border.Lines="Bottom" Border.Color="0, 85, 165" Border.Width="3" Fill.Color="AliceBlue" Text="Client Report" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt" TextFill.Color="0, 255, 0"/>
+    </ReportTitleBand>
+
+    <!-- Agregar el gráfico de barras usando la propiedad LR del cliente -->
+    <ChartObject Name="LRChart" Left="9.45" Top="250" Width="500" Height="300" 
+                 ChartType="BarChart" DataSource="Clients">
+        <!-- Aquí asignamos el ValueMember a cada valor individual de LR -->
+        <BarSeries Name="LRSeries" DataSource="Clients" 
+                   ValueMember="LR" CategoryMember="Name"/>
+    </ChartObject>
+ 
+    <PageHeaderBand Name="PageHeader1" Top="60.7" Width="718.2" Height="37.8">
+      <TextObject Name="HeaderName" Left="9.45" Width="94.5" Height="18.9" Border.Lines="All" Border.Color="Gray" Fill.Color="242, 242, 242" Text="Name" Font="Arial, 10pt"/>
+      <TextObject Name="HeaderSurname" Left="141.75" Width="94.5" Height="18.9" Border.Lines="All" Border.Color="Gray" Fill.Color="242, 242, 242" Text="DNI" Font="Arial, 10pt"/>
+      <TextObject Name="HeaderEmail" Left="255.15" Width="94.5" Height="18.9" Border.Lines="All" Border.Color="Gray" Fill.Color="242, 242, 242" Text="Email" Font="Arial, 10pt"/>
+      <TextObject Name="HeaderPhone" Left="378" Width="94.5" Height="18.9" Border.Lines="All" Border.Color="Gray" Fill.Color="242, 242, 242" Text="Phone" Font="Arial, 10pt"/>
+      <TextObject Name="HeaderDate" Left="519.75" Width="141.75" Height="18.9" Border.Lines="All" Border.Color="Gray" Fill.Color="242, 242, 242" Text="Date" Font="Arial, 10pt"/>
+    </PageHeaderBand>
+
+    <DataBand Name="Data1" Top="102.5" Width="718.2" Height="28.35">
+
+
+      <TextObject Name="DataName" Left="9.45" Width="94.5" Height="18.9" Border.Lines="All" Border.Color="LightGray" Text="[Clients.Name]" Font="Calibri, 10pt"/>
+      <TextObject Name="DataDNI" Left="141.75" Width="94.5" Height="18.9" Border.Lines="All" Border.Color="LightGray" Text="[Clients.DNI]" Font="Calibri, 10pt"/>
+      <TextObject Name="DataEmail" Left="255.15" Width="113.4" Height="18.9" Border.Lines="All" Border.Color="LightGray" Text="[Clients.Email]" Font="Calibri, 10pt"/>
+      <TextObject Name="DataPhone" Left="378" Width="94.5" Height="18.9" Border.Lines="All" Border.Color="LightGray" Text="[Clients.Phone]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="0" HorzAlign="Right" Font="Arial, 10pt"/>
+      <TextObject Name="DataDate" Left="519.75" Width="141.75" Height="18.9" Border.Lines="All" Border.Color="LightGray" Text="[Clients.Date]" Font="Calibri, 10pt"/>
+    </DataBand>
+
+    <PageFooterBand Name="PageFooter1" Top="134.85" Width="718.2" Height="28.35">
+      <TextObject Name="FooterText" Text="Generated on: [DateTime.Now] | Page [Page#] of [TotalPages]" HorzAlign="Right" Font="Calibri, 8pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>
